@@ -234,7 +234,7 @@ void init_allocator(void * heapstart, uint8_t initial_size, uint8_t min_size) {
     void* end_of_heap = virtual_sbrk(0);
     int existing_size = end_of_heap - heapstart;
     int extra_size = (1<<initial_size) - existing_size; // extra size for data/block part
-    int size_data_structure = ((1<<(initial_size - min_size)) * 2) + 2;
+    int size_data_structure = ((1<<(initial_size - min_size)) * 2) + 4;
 
     // This step is aimed for my test.    
     // Since I use realloc() in virtual_sbrk, heapstart will be free, so if I want use this pointer, I need to reassign.
